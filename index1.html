@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Travel Planner - Your Smart Travel Companion</title>
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <header class="header">
+      <!-- <div class="logo">
+          <img src="./assets/logo.png" alt="AI Travel Planner Logo" />
+        </div> -->
+      <div class="header-content">
+        <h1>AI Travel Planner</h1>
+        <p>
+          Experience personalized travel planning powered by artificial
+          intelligence
+        </p>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#bookings">Bookings</a></li>
+          <li><a href="#travel-form">Plan a Trip</a></li>
+          <li><a href="#Blogs">Explore Blogs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <section class="features">
+        <div class="feature-card">
+          <h3>Smart Recommendations</h3>
+          <p>
+            Our AI analyzes your preferences to suggest the perfect destinations
+            and activities
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Personalized Itineraries</h3>
+          <p>Get custom travel plans tailored to your interests and budget</p>
+        </div>
+        <div class="feature-card">
+          <h3>Local Insights</h3>
+          <p>
+            Discover hidden gems and authentic experiences recommended by locals
+          </p>
+        </div>
+      </section>
+
+      <section class="destination-gallery">
+        <div class="gallery-item">
+          <img src="./assets/1.jpg" alt="Paris" />
+          <div class="overlay">Paris, France</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/2.jpg" alt="Bali" />
+          <div class="overlay">Bali, Indonesia</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/3.jpg" alt="Tokyo" />
+          <div class="overlay">Tokyo, Japan</div>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/4.jpg" alt="New York" />
+          <div class="overlay">New York, USA</div>
+        </div>
+      </section>
+
+      <section class="section-title">
+        <h2>Plan Your Dream Trip</h2>
+        <p>
+          Tell us your preferences and let our AI create the perfect itinerary
+        </p>
+      </section>
+
+      <form class="travel-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="from">From</label>
+            <input
+              type="text"
+              id="from"
+              name="from"
+              placeholder="From where are you going?"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="destination">Destination</label>
+            <input
+              type="text"
+              id="destination"
+              name="destination"
+              placeholder="Where would you like to go?"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Number of Days</label>
+            <input
+              type="number"
+              id="duration"
+              name="duration"
+              min="1"
+              placeholder="How many days?"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget per person (INR)</label>
+            <input
+              type="number"
+              id="budget"
+              name="budget"
+              placeholder="Enter your budget"
+              required
+            />
+          </div>
+
+          <div class="form-group full-width">
+            <label>Travel Interests</label>
+            <div class="interests-grid">
+              <button
+                type="button"
+                class="interest-button"
+                data-interest="adventure"
+              >
+                Adventure
+              </button>
+              <button
+                type="button"
+                class="interest-button"
+                data-interest="sightseeing"
+              >
+                Sightseeing
+              </button>
+              <button
+                type="button"
+                class="interest-button"
+                data-interest="religious"
+              >
+                Religious Places
+              </button>
+              <button
+                type="button"
+                class="interest-button"
+                data-interest="culture"
+              >
+                Cultural
+              </button>
+            </div>
+            <input
+              type="hidden"
+              id="selected-interests"
+              name="selected-interests"
+            />
+          </div>
+
+          <div class="form-group full-width">
+            <label for="special-requirements">Special Requirements</label>
+            <textarea
+              id="special-requirements"
+              name="special-requirements"
+              rows="4"
+              placeholder="Any dietary restrictions, accessibility needs, or specific preferences?"
+            ></textarea>
+          </div>
+        </div>
+
+        <button type="submit">Generate My Travel Plan</button>
+      </form>
+
+      <div id="loading-container">
+        <div id="loading-message" class="loading-message">
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+          <dotlottie-player
+            src="https://lottie.host/7464b8f0-1b22-480e-bbe9-40b21e31d5ab/Lx8hlVArnH.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay
+          ></dotlottie-player>
+          <p>Generating your travel plan...</p>
+        </div>
+      </div>
+
+      <div class="weather-section">
+        <div id="weather-card" class="weather-card">
+          <!-- Weather info will be populated here -->
+        </div>
+      </div>
+
+      <div id="travel-plan-container" class="travel-plan-container"></div>
+
+      <div id="blog" class="blog"></div>
+
+      <div id="destination-image" class="destination-image-container"></div>
+
+      <section class="section-title">
+        <h2>What Our Travelers Say</h2>
+        <p>Read about their experiences with our AI travel planner</p>
+      </section>
+
+      <section class="testimonials">
+        <div class="testimonial-card">
+          <img
+            src="./assets/toa-heftiba-O3ymvT7Wf9U-unsplash.jpg"
+            alt="User 1"
+          />
+          <h4>Sarah Johnson</h4>
+          <p>
+            "The AI created the perfect itinerary for my family vacation. It
+            included activities for everyone!"
+          </p>
+        </div>
+        <div class="testimonial-card">
+          <img
+            src="./assets/ian-dooley-d1UPkiFd04A-unsplash.jpg"
+            alt="User 2"
+          />
+          <h4>Michael Chen</h4>
+          <p>
+            "I discovered amazing local spots I wouldn't have found otherwise.
+            Highly recommended!"
+          </p>
+        </div>
+        <div class="testimonial-card">
+          <img
+            src="./assets/michael-dam-mEZ3PoFGs_k-unsplash.jpg"
+            alt="User 3"
+          />
+          <h4>Emma Davis</h4>
+          <p>
+            "The budget optimization feature helped me plan a luxury experience
+            within my means."
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>© 2025 AI Travel Planner. All rights reserved by Sumit Akhuli</p>
+        <p>Designed for seamless and smart travel experiences.</p>
+      </div>
+      <div class="social-icons">
+        <a href="https://github.com/akhulisumit" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/sumit-akhuli/" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://www.instagram.com/akhulisumit/" target="_blank"
+          >Instagram</a
+        >
+      </div>
+    </footer>
+
+    <script src="script1.js"></script>
+  </body>
+</html>
